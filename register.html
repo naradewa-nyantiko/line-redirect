@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>会員登録</title>
+<style>
+body{font-family:sans-serif;margin:0;padding:20px;background:#f5f5f5;}
+h2{color:#333;text-align:center;margin-bottom:20px;}
+.form-group{margin-bottom:16px;}
+label{display:block;font-size:14px;color:#555;margin-bottom:4px;}
+input,select{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:16px;box-sizing:border-box;}
+.required{color:red;}
+button{width:100%;padding:14px;background:#06C755;color:white;border:none;border-radius:8px;font-size:16px;margin-top:20px;cursor:pointer;}
+button:hover{background:#05a847;}
+.note{font-size:12px;color:#999;text-align:center;margin-top:10px;}
+</style>
+</head>
+<body>
+<h2>会員登録</h2>
+<div class="form-group">
+  <label>お名前 <span class="required">*</span></label>
+  <input type="text" id="name" placeholder="山田太郎" required>
+</div>
+<div class="form-group">
+  <label>ニックネーム</label>
+  <input type="text" id="nickname" placeholder="たろう">
+</div>
+<div class="form-group">
+  <label>郵便番号 <span class="required">*</span></label>
+  <input type="text" id="zip" placeholder="123-4567" required>
+</div>
+<div class="form-group">
+  <label>住所 <span class="required">*</span></label>
+  <input type="text" id="address" placeholder="長崎県長崎市〇〇町1-2-3" required>
+</div>
+<div class="form-group">
+  <label>職業</label>
+  <input type="text" id="job" placeholder="会社員">
+</div>
+<div class="form-group">
+  <label>電話番号 <span class="required">*</span></label>
+  <input type="tel" id="phone" placeholder="090-1234-5678" required>
+</div>
+<div class="form-group">
+  <label>生年月日 <span class="required">*</span></label>
+  <input type="date" id="birthday" required>
+</div>
+<button onclick="submit()">登録する</button>
+<p class="note">* は必須項目です</p>
+
+<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<script>
+const LIFF_ID = '2009803545-2YA1pVSo';
+const GAS_URL = 'https://script.google.com/macros/library/d/1t__yVhBLiqghhp292tp7_uelYvWCjdjp8KIMpSRV-QviHlmdbUffEIKw/36';
+let lineId = '';
+
+liff.init({liffId: LIFF_ID}).then(async () => {
+  const profile = await liff.getProfile();
+  lineId = profile.userId;
+});
+
+async function submit() {
+  const name = document.getElementById('name').value;
+  const nickname = document.getElementById('nickname').value;
+  const zip = document.getElementById('zip').value;
+  const address = document.getElementById('address').value;
+  const job = document.getElementById('job').value;
+  const phone = document.getElementById('phone').value;
+  const birthday = document.getElementById('birthday').value;
+
+  if (!name || !zip || !address || !phone || !birthday) {
+    alert('必須項目を入力してください');
+    return;
+  }
+
+  const res = await fetch(GAS_URL + '?action=register&lineId=' + lineId +
+    '&name=' + encodeURIComponent(name) +
+    '&nickname=' + encodeURIComponent(nickname) +
+    '&zip=' + encodeURIComponent(zip) +
+    '&address=' + encodeURIComponent(address) +
+    '&job=' + encodeURIComponent(job) +
+    '&phone=' + encodeURIComponent(phone) +
+    '&birthday=' + encodeURIComponent(birthday));
+
+  alert('登録が完了しました！');
+  liff.closeWindow();
+}
+</script>
+</body>
+</html>
