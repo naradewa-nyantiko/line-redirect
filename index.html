@@ -1,22 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>読み込み中...</title>
 </head>
 <body>
-  <p>読み込み中...</p>
-  <script>
-    const LIFF_ID = '2009803545-2YA1pVSo';
-    const GAS_URL = 'https://script.google.com/macros/s/AKfycbykEzdwVU4Cbl4aRdw1-6JF3xE80fdCO-JdHjU_ABMBBooh_KUBjYRzC6W-jQC9SCBU/exec';
-    
-    liff.init({liffId: LIFF_ID}).then(async () => {
-      const profile = await liff.getProfile();
-      const lineId = profile.userId;
-      window.location.href = GAS_URL + '?lineId=' + lineId;
-    }).catch(err => {
-      document.body.innerHTML = 'エラー: ' + err.message;
-    });
-  </script>
+<p style="text-align:center;margin-top:40px;color:#666;">読み込み中...</p>
+
+<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<script>
+const LIFF_ID = '2009803545-2YA1pVSo';
+const GAS_URL = 'https://script.google.com/macros/library/d/1t__yVhBLiqghhp292tp7_uelYvWCjdjp8KIMpSRV-QviHlmdbUffEIKw/36';
+
+liff.init({liffId: LIFF_ID}).then(async () => {
+  const profile = await liff.getProfile();
+  const lineId = profile.userId;
+  
+  const res = await fetch(GAS_URL + '?action=check&lineId=' + lineId);
+  const data = await res.json();
+  
+  if (data.isMember) {
+    window.location.href = './enquete.html?lineId=' + lineId;
+  } else {
+    window.location.href = './register.html?lineId=' + lineId;
+  }
+});
+</script>
 </body>
 </html>
