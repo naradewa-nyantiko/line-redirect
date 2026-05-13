@@ -1,87 +1,9 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>5月号アンケート</title>
-<style>
-body{font-family:sans-serif;margin:0;padding:20px;background:#f5f5f5;}
-h2{color:#333;text-align:center;margin-bottom:4px;}
-p{text-align:center;color:#666;font-size:14px;margin-bottom:20px;}
-.form-group{margin-bottom:20px;background:white;padding:16px;border-radius:8px;}
-label{display:block;font-size:15px;color:#333;margin-bottom:10px;font-weight:bold;}
-.option{display:flex;align-items:center;margin-bottom:8px;}
-.option input{width:auto;margin-right:10px;}
-.option span{font-size:14px;color:#444;}
-textarea{width:100%;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:16px;box-sizing:border-box;}
-button{width:100%;padding:14px;background:#06C755;color:white;border:none;border-radius:8px;font-size:16px;margin-top:10px;cursor:pointer;}
-button:hover{background:#05a847;}
-</style>
-</head>
-<body>
-<h2>5月号アンケート</h2>
-<p>ご希望のプレゼントを第3希望までお選びください</p>
-
-<div class="form-group">
-  <label>プレゼント第1希望 *</label>
-  <div class="option"><input type="radio" name="gift1" value="A.映画「いろは」鑑賞券"><span>A.映画「いろは」鑑賞券</span></div>
-  <div class="option"><input type="radio" name="gift1" value="B.九州爬虫類フェス2026招待券"><span>B.九州爬虫類フェス2026招待券</span></div>
-  <div class="option"><input type="radio" name="gift1" value="C.Sandy Trip×西方小天鼓サイン入りチケット"><span>C.Sandy Trip×西方小天鼓サイン入りチケット</span></div>
-  <div class="option"><input type="radio" name="gift1" value="D.ガーデン&フラワー生香園引換券"><span>D.ガーデン&フラワー生香園引換券</span></div>
-  <div class="option"><input type="radio" name="gift1" value="E.シネマボックス太陽映画観賞券"><span>E.シネマボックス太陽映画観賞券</span></div>
-  <div class="option"><input type="radio" name="gift1" value="F.海鮮屋ばんせい1000円OFFチケット"><span>F.海鮮屋ばんせい1000円OFFチケット</span></div>
-  <div class="option"><input type="radio" name="gift1" value="G.VファーレンオリジナルTシャツ"><span>G.VファーレンオリジナルTシャツ</span></div>
-</div>
-
-<div class="form-group">
-  <label>プレゼント第2希望 *</label>
-  <div class="option"><input type="radio" name="gift2" value="A.映画「いろは」鑑賞券"><span>A.映画「いろは」鑑賞券</span></div>
-  <div class="option"><input type="radio" name="gift2" value="B.九州爬虫類フェス2026招待券"><span>B.九州爬虫類フェス2026招待券</span></div>
-  <div class="option"><input type="radio" name="gift2" value="C.Sandy Trip×西方小天鼓サイン入りチケット"><span>C.Sandy Trip×西方小天鼓サイン入りチケット</span></div>
-  <div class="option"><input type="radio" name="gift2" value="D.ガーデン&フラワー生香園引換券"><span>D.ガーデン&フラワー生香園引換券</span></div>
-  <div class="option"><input type="radio" name="gift2" value="E.シネマボックス太陽映画観賞券"><span>E.シネマボックス太陽映画観賞券</span></div>
-  <div class="option"><input type="radio" name="gift2" value="F.海鮮屋ばんせい1000円OFFチケット"><span>F.海鮮屋ばんせい1000円OFFチケット</span></div>
-  <div class="option"><input type="radio" name="gift2" value="G.VファーレンオリジナルTシャツ"><span>G.VファーレンオリジナルTシャツ</span></div>
-</div>
-
-<div class="form-group">
-  <label>プレゼント第3希望 *</label>
-  <div class="option"><input type="radio" name="gift3" value="A.映画「いろは」鑑賞券"><span>A.映画「いろは」鑑賞券</span></div>
-  <div class="option"><input type="radio" name="gift3" value="B.九州爬虫類フェス2026招待券"><span>B.九州爬虫類フェス2026招待券</span></div>
-  <div class="option"><input type="radio" name="gift3" value="C.Sandy Trip×西方小天鼓サイン入りチケット"><span>C.Sandy Trip×西方小天鼓サイン入りチケット</span></div>
-  <div class="option"><input type="radio" name="gift3" value="D.ガーデン&フラワー生香園引換券"><span>D.ガーデン&フラワー生香園引換券</span></div>
-  <div class="option"><input type="radio" name="gift3" value="E.シネマボックス太陽映画観賞券"><span>E.シネマボックス太陽映画観賞券</span></div>
-  <div class="option"><input type="radio" name="gift3" value="F.海鮮屋ばんせい1000円OFFチケット"><span>F.海鮮屋ばんせい1000円OFFチケット</span></div>
-  <div class="option"><input type="radio" name="gift3" value="G.VファーレンオリジナルTシャツ"><span>G.VファーレンオリジナルTシャツ</span></div>
-</div>
-
-<div class="form-group">
-  <label>おすすめの食感スイーツとそのお店</label>
-  <textarea id="q1" rows="3" placeholder="自由に入力してください"></textarea>
-</div>
-
-<div class="form-group">
-  <label>私のたび旅のお供・旅の裏側</label>
-  <textarea id="q2" rows="3" placeholder="自由に入力してください"></textarea>
-</div>
-
-<div class="form-group">
-  <label>あなたのAI活用術</label>
-  <textarea id="q3" rows="3" placeholder="自由に入力してください"></textarea>
-</div>
-
-<button onclick="submitEnquete()">送信する</button>
-
-<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 <script>
-const LIFF_ID = '2009803545-2YA1pVSo';
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbykEzdwVU4Cbl4aRdw1-6JF3xE80fdCO-JdHjU_ABMBBooh_KUBjYRzC6W-jQC9SCBU/exec';
-let lineId = '';
 
-liff.init({liffId: LIFF_ID}).then(async () => {
-  const profile = await liff.getProfile();
-  lineId = profile.userId;
-});
+// URLからLINE IDを取得
+const urlParams = new URLSearchParams(window.location.search);
+const lineId = urlParams.get('lineId');
 
 async function submitEnquete() {
   const gift1 = document.querySelector('input[name="gift1"]:checked');
@@ -106,8 +28,6 @@ async function submitEnquete() {
     '&q3=' + encodeURIComponent(q3));
 
   alert('送信完了しました！ありがとうございました😊');
-  liff.closeWindow();
+  window.close();
 }
 </script>
-</body>
-</html>
