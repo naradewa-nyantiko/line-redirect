@@ -14,17 +14,24 @@ const LIFF_ID = '2009803545-2YA1pVSo';
 const GAS_URL = 'https://script.google.com/macros/s/AKfycbykEzdwVU4Cbl4aRdw1-6JF3xE80fdCO-JdHjU_ABMBBooh_KUBjYRzC6W-jQC9SCBU/exec';
 
 liff.init({liffId: LIFF_ID}).then(async () => {
-  const profile = await liff.getProfile();
-  const lineId = profile.userId;
-  
-  const res = await fetch(GAS_URL + '?action=check&lineId=' + lineId);
-  const data = await res.json();
-  
-  if (data.isMember) {
-    window.location.href = './enquete.html?lineId=' + lineId;
-  } else {
-    window.location.href = './register.html?lineId=' + lineId;
+  try {
+    const profile = await liff.getProfile();
+    const lineId = profile.userId;
+    document.querySelector('p').textContent = 'LINE ID取得: ' + lineId;
+    
+    const res = await fetch(GAS_URL + '?action=check&lineId=' + lineId);
+    const data = await res.json();
+    
+    if (data.isMember) {
+      window.location.href = './enquete.html?lineId=' + lineId;
+    } else {
+      window.location.href = './register.html?lineId=' + lineId;
+    }
+  } catch(err) {
+    document.querySelector('p').textContent = 'エラー: ' + err.message;
   }
+}).catch(err => {
+  document.querySelector('p').textContent = 'LIFF初期化エラー: ' + err.message;
 });
 </script>
 </body>
