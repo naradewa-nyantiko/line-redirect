@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>読み込み中...</title>
+</head>
+<body>
+<p style="text-align:center;margin-top:40px;color:#666;">読み込み中...</p>
+<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<script>
+const LIFF_ID = '2010660339-Fe46Z64u';
+const GAS_URL = 'https://script.google.com/macros/s/AKfycby-UCCPuw3ipBqxcLDb1_rtvQZT-O4J3tdWmSlsNyey7GnSYKQ60cfhy_8DNsVUlaFqOw/exec';
+liff.init({liffId: LIFF_ID}).then(async () => {
+  const profile = await liff.getProfile();
+  const lineId = profile.userId;
+  const params = new URLSearchParams(location.search);
+  const action = params.get('action') || '';
+  const url = GAS_URL + '?lineId=' + lineId + (action ? '&action=' + action : '');
+  window.location.href = url;
+}).catch(err => {
+  document.querySelector('p').textContent = 'エラー: ' + err.message;
+});
+</script>
+</body>
+</html>
