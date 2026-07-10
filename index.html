@@ -15,7 +15,10 @@ const GAS_URL = 'https://script.google.com/macros/s/AKfycbykEzdwVU4Cbl4aRdw1-6JF
 liff.init({liffId: LIFF_ID}).then(async () => {
   const profile = await liff.getProfile();
   const lineId = profile.userId;
-  window.location.href = GAS_URL + '?lineId=' + lineId;
+  const params = new URLSearchParams(location.search);
+  const action = params.get('action') || '';
+  const url = GAS_URL + '?lineId=' + lineId + (action ? '&action=' + action : '');
+  window.location.href = url;
 }).catch(err => {
   document.querySelector('p').textContent = 'エラー: ' + err.message;
 });
